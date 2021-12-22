@@ -3,22 +3,21 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
-
 public class NewsText extends Application {
     private ParseNewsNsn parseNewsNsn;
     private int numberNews;
 
-
-
-    public NewsText(ParseNewsNsn parseNewsNsn,int numberNews) {
+    public NewsText(ParseNewsNsn parseNewsNsn, int numberNews) {
         this.parseNewsNsn = parseNewsNsn;
-        this.numberNews=numberNews;
+        this.numberNews = numberNews;
+
     }
 
     @Override
@@ -28,7 +27,7 @@ public class NewsText extends Application {
         TextArea textArea = new TextArea();
         Font font = new Font(15);
         textArea.setFont(font);
-        Scene scene = new Scene(root, 650, 400);
+        Scene scene = new Scene(root, 700, 400);
 
         Button closeProgramButton = new Button("Close");
         closeProgramButton.setOnAction(new EventHandler<ActionEvent>() {

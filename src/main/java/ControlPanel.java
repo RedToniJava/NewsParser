@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 public class ControlPanel extends Application {
 
     private final ParseNewsNsn parseNewsNsn;
@@ -18,21 +19,20 @@ public class ControlPanel extends Application {
     private final ParseNewsNN parseNewsNN;
     private final Stage stage1 = new Stage();
 
-    public ControlPanel(ParseNewsNsn parseNewsNsn,ParseNewsRbc parseNewsRbc,ParseNewsNN parseNewsNN) {
-        this.parseNewsNsn=parseNewsNsn;
-        this.parseNewsRbc=parseNewsRbc;
-        this.parseNewsNN=parseNewsNN;
+    public ControlPanel(ParseNewsNsn parseNewsNsn, ParseNewsRbc parseNewsRbc, ParseNewsNN parseNewsNN) {
+        this.parseNewsNsn = parseNewsNsn;
+        this.parseNewsRbc = parseNewsRbc;
+        this.parseNewsNN = parseNewsNN;
     }
-
 
 
     @Override
     public void start(Stage stage) throws Exception {
+
         int weight = 550;
         int height = 75;
 
         VBox root = new VBox(10);
-        VBox root1 = new VBox(10);
 
         Scene scene = new Scene(root, weight, height);
 
@@ -40,13 +40,10 @@ public class ControlPanel extends Application {
         new Thread(parseNewsNN).start();
         new Thread(parseNewsRbc).start();
 
-
         HBox hboxStart = new HBox();
         hboxStart.setSpacing(5);
         hboxStart.setPadding(new Insets(5));
-        HBox hboxPage1 = new HBox();
-        hboxPage1.setSpacing(5);
-        hboxPage1.setPadding(new Insets(5));
+
 
         TextField textField = new TextField();
 
@@ -59,10 +56,7 @@ public class ControlPanel extends Application {
         Button searchButton = new Button("", new ImageView(image));
 
         hboxStart.getChildren().addAll(textField, searchButton, getNewsNsnButton, getNewsRbcButton, getNewsNNButton, closeProgramButton);
-
-        root1.getChildren().add(hboxPage1);
         root.getChildren().add(hboxStart);
-
 
         //search button
         searchButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -122,9 +116,6 @@ public class ControlPanel extends Application {
         closeProgramButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                parseNewsRbc.stopParse();
-                parseNewsNsn.stopParse();
-                parseNewsNN.stopParse();
                 stage.close();
             }
         });
@@ -133,7 +124,6 @@ public class ControlPanel extends Application {
         stage.setTitle("News panel");
         stage.setScene(scene);
         stage.show();
-
 
     }
 

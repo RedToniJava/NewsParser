@@ -1,13 +1,10 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class ParseNewsNsn implements Runnable {
-
 
     private final ArrayList<String> lastNews = new ArrayList<>();
     private final ArrayList<String> lastNewsUrl = new ArrayList<>();
@@ -15,8 +12,6 @@ public class ParseNewsNsn implements Runnable {
     private static Document doc;
     private static Document docTextNews;
     private boolean startParse = true;
-
-
 
     //parse HTML by NSN
     @Override
@@ -39,8 +34,6 @@ public class ParseNewsNsn implements Runnable {
 
             });
 
-
-
             try {
                 Thread.sleep(60000);
             } catch (InterruptedException e) {
@@ -51,7 +44,6 @@ public class ParseNewsNsn implements Runnable {
             lastNewsUrl.clear();
 
         }
-
 
     }
 
@@ -74,6 +66,7 @@ public class ParseNewsNsn implements Runnable {
             }
         }
         Elements elements = docTextNews.select("div._1gjWV");
+
         return elements.get(0).text();
 
     }
@@ -96,7 +89,5 @@ public class ParseNewsNsn implements Runnable {
     public void stopParse() {
         startParse = false;
     }
-
-
 
 }

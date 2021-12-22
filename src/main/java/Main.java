@@ -10,15 +10,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-             launch();
+        launch();
         new Thread(new Runnable() {
 
             @Override
             public void run() {
-                while(parseNewsNsn.getStartParse()&& parseNewsNN.getStartParse()&& parseNewsRbc.getStartParse()){
-                    //  System.out.println(parseNewsNsn.getStartParse()+" "+parseNewsNN.getStartParse()+" "+ parseNewsRbc.getStartParse());
-                    if(!Thread.currentThread().isInterrupted()){
-                        System.out.println("Yes!!!!!!!!!!");
+                while (parseNewsNsn.getStartParse() && parseNewsNN.getStartParse() && parseNewsRbc.getStartParse()) {
+                    if (!Thread.currentThread().isInterrupted()) {
                         parseNewsRbc.stopParse();
                         parseNewsNN.stopParse();
                         parseNewsNsn.stopParse();

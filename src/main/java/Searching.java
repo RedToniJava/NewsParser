@@ -24,7 +24,6 @@ public class Searching extends Application {
     private Scene scene;
     private Stage stage1;
     private int num = 1;
-    private int num1;
 
     //construct class Searching
     public Searching(ParseNewsNsn parseNewsNsn, ParseNewsRbc parseNewsRbc, ParseNewsNN parseNewsNN, String[] strings, Stage stage1, Scene scene) {
@@ -106,7 +105,6 @@ public class Searching extends Application {
 
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println(i);
                     NewsText newsText = new NewsText(parseNewsNsn, i);
                     try {
                         newsText.start(stage1);
@@ -182,7 +180,7 @@ public class Searching extends Application {
                 public void handle(ActionEvent actionEvent) {
 
                     NewsText newsText = new NewsText(parseNewsNN, i);
-                    System.out.println(i);
+
                     try {
                         newsText.start(stage1);
                     } catch (Exception e) {

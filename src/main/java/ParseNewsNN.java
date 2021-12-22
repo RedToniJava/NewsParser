@@ -41,7 +41,7 @@ public class ParseNewsNN extends ParseNewsNsn implements Runnable {
             });
 
             try {
-                Thread.sleep(60000);
+                Thread.sleep(120000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 public class GetNews extends Application {
 
@@ -45,7 +46,7 @@ public class GetNews extends Application {
         backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                          stage.setScene(scene);
+                stage.setScene(scene);
                 stage.show();
             }
         });
@@ -108,7 +109,6 @@ public class GetNews extends Application {
         stage.setTitle("News");
         stage.setScene(scene1);
         stage.show();
-
 
 
     }
